@@ -1,0 +1,14 @@
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchTerm" (keyup.enter)="searchCard()" placeholder="Cerca una carta...">
+  <button (click)="searchCard()">🔍</button>
+</div>
+
+<div id="grid">
+  @if (filteredCards.length > 0) {
+    @for (card of filteredCards; track card.id) {
+      <img [src]="card.imageUrl" [alt]="card.name">
+    }
+  } @else {
+    <p>Nessuna carta trovata</p>
+  }
+</div>
