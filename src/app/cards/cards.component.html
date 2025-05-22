@@ -1,7 +1,9 @@
 <div class="search-container">
   <input type="text" [(ngModel)]="searchTerm" (keyup.enter)="searchCard()" placeholder="Cerca una carta...">
   <button (click)="searchCard()">🔍</button>
+  <button (click)="createDeck()" class="create-deck-btn">Crea Deck</button>
 </div>
+
 
 <div id="grid">
   @if (filteredCards.length > 0) {
@@ -12,3 +14,16 @@
     <p>Nessuna carta trovata</p>
   }
 </div>
+
+@if (decks.length > 0) {
+  <div style="margin: 20px 0;">
+    <h3>Mazzi creati:</h3>
+    <ul>
+      @for (deck of decks; track deck) {
+        <li>
+          {{ deck.name }} ({{ deck.cards.length }} carte)
+        </li>
+      }
+    </ul>
+  </div>
+}

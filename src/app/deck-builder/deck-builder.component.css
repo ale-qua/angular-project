@@ -1,0 +1,35 @@
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.deck-card {
+  position: relative;
+}
+
+.remove-icon {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background-color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  color: red;
+  padding: 2px 6px;
+  font-size: 16px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+input {
+  padding: 6px;
+  font-size: 1rem;
+  margin-right: 8px;
+}
+
+button {
+  padding: 6px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+}

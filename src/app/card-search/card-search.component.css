@@ -1,0 +1,23 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.card-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.add-icon {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background-color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  color: green;
+  padding: 2px 6px;
+  font-size: 16px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}

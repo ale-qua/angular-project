@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards',
@@ -13,8 +14,9 @@ export class CardsComponent {
   cards: any[] = [];
   filteredCards: any[] = [];
   searchTerm: string = '';
+  decks: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,  private router: Router) {}
 
   ngOnInit() {
     this.loadCards();
@@ -28,6 +30,25 @@ export class CardsComponent {
       },
       (error) => console.error('Errore nel caricamento delle carte:', error)
     );
+  }
+
+  createDeck() {
+    if (this.filteredCards.length === 0) {
+      alert('Nessuna carta selezionata per il mazzo!');
+      return;
+    }
+
+    const deck = {
+      name: 'Nuovo mazzo ' + (this.decks.length + 1),
+      cards: this.filteredCards.map((card) => ({
+        name: card.name,
+        imageUrl: card.imageUrl,
+      })),
+    };
+
+    this.decks.push(deck);
+    localStorage.setItem('decks', JSON.stringify(this.decks));
+    this.router.navigate(['/decks']);
   }
 
   searchCard() {

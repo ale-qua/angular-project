@@ -1,0 +1,14 @@
+<h1>Deck Builder</h1>
+
+<app-card-search (cardSelected)="addCardToDeck($event)"></app-card-search>
+
+<h2>Il mio deck</h2>
+
+<div class="deck-grid">
+  <div *ngFor="let card of deck" class="deck-card">
+    <img *ngIf="card.imageUrl" [src]="card.imageUrl" width="100%">
+    <div class="remove-icon" (click)="removeCard(card)">–</div>
+  </div>
+</div>
+
+

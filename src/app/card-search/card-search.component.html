@@ -1,0 +1,11 @@
+<div style="margin-bottom: 1rem;">
+  <input [(ngModel)]="query" placeholder="Cerca carte MTG">
+  <button (click)="search()">Cerca</button>
+</div>
+
+<div class="card-grid">
+  <div *ngFor="let card of cards" class="card-wrapper" (click)="selectCard(card)">
+    <img *ngIf="card.imageUrl" [src]="card.imageUrl" width="100%">
+    <div class="add-icon">+</div>
+  </div>
+</div>

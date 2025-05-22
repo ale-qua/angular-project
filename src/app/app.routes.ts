@@ -1,6 +1,14 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { CardsComponent } from './cards/cards.component';
+import { NgModule } from '@angular/core';
+
 
 export const routes: Routes = [
-  { path: '', component: CardsComponent } // Homepage mostra le carte
+  { path: '', component: CardsComponent },
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
